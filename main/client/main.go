@@ -60,7 +60,7 @@ func doMain(conn *net.TCPConn) {
 	}
 
 	buf := make([]byte, 1)
-	for i := 0; i < 30; i++ {
+	for {
 		_ = conn.SetReadDeadline(time.Now().Add(3 * time.Second))
 		if _, err := conn.Read(buf); err != nil {
 			break
